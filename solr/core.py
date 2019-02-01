@@ -425,7 +425,6 @@ class Solr:
         
         if http_user is not None and http_pass is not None:
             http_auth = http_user + ':' + http_pass
-            # http_auth = 'Basic ' + http_auth.encode('base64').strip()
             http_auth = b'Basic ' + base64.b64encode(http_auth.encode()).strip()
             self.auth_headers = {'Authorization': http_auth}
         else:
